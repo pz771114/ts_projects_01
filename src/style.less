@@ -1,0 +1,72 @@
+//reset stylesheet
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+//define variables
+@bg-color:#7cc576;
+
+body{
+    font:bold 20px 'Arial'
+}
+
+#main{
+    width:360px;
+    height:420px;
+    background-color: @bg-color;
+    border:10px solid #000;
+    border-radius: 10px;
+    margin:100px auto;
+
+    //set layout
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    #stage{
+        width:300px;
+        height:300px;
+        border: 5px solid #000;
+
+        position: relative;
+
+       #snake{
+        width: 10px;
+        height: 10px;
+        background-color: #000;
+
+        position: absolute;
+        top:100px;
+        left:40px
+       }
+
+       #item{
+        width: 10px;
+        height: 10px;
+
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-content: space-between;
+
+        position:absolute;
+        top:200px;
+        left:100px;
+        &>div{
+            width: 4px;
+            height: 4px;
+            background-color: #000;
+            transform: rotate(45deg);
+        }
+       }
+    }
+
+    #status{
+        width: 300px;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+    }
+}
