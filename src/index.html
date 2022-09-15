@@ -1,18 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <title>Project #1: A simple snake game</title>
     <link rel="stylesheet" href="style.less" />
     <script type="module" src="app.ts"></script>
   </head>
   <body>
-  <div id="main">
-    <div id="stage">
+    <div id="main">
+      <div id="stage">
         <!-- set up the game elements-->
-        <div id="snake">
-
-        </div>
+        <div id="snake"></div>
 
         <div id="item">
           <div></div>
@@ -20,13 +18,12 @@
           <div></div>
           <div></div>
         </div>
-    </div>
+      </div>
 
-    <div id="status">
-      <div>Score:<span>1</span></div>
-      <div>Level:<span>1</span></div>
+      <div id="status">
+        <div>Score:<span id="score">1</span></div>
+        <div>Level:<span id="level">1</span></div>
+      </div>
     </div>
-
-  </div>
   </body>
 </html>
