@@ -21,16 +21,34 @@ class Game {
 
     this.direction = "";
     this.isGameOver = false;
+
+    this.control();
   }
 
-  control(){
-
-    //How can we monitor if user pressed arrow keys 
-
-    //How can we tell which arrow key use pressed, up,down,left or right?
-
-    //What should we do after user pressed arrow keys
-
-    
+  control() {
+    document.addEventListener("keydown", this.keydownHandler);
   }
+
+  keydownHandler = (event: KeyboardEvent): void => {
+    console.log("key pressed:", event.key);
+
+    this.direction = event.key;
+
+    switch (this.direction) {
+      case "ArrowLeft":
+        this.gamePlayer.X -= 10;
+        break;
+      case "ArrowRight":
+        this.gamePlayer.X += 10;
+        break;
+      case "ArrowUp":
+        this.gamePlayer.Y -= 10;
+        break;
+      case "ArrowDown":
+        this.gamePlayer.Y += 10;
+        break;
+    }
+  };
 }
+
+export default Game;
