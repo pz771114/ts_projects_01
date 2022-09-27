@@ -30,7 +30,7 @@ class Game {
   }
 
   keydownHandler = (event: KeyboardEvent): void => {
-    console.log("key pressed:", event.key);
+    //console.log("key pressed:", event.key);
 
     this.direction = event.key;
 
@@ -48,7 +48,26 @@ class Game {
         this.gamePlayer.Y += 10;
         break;
     }
+    console.log(
+      this.gamePlayer.X,
+      this.gamePlayer.Y,
+      this.gameItem.X,
+      this.gameItem.Y
+    );
+    this.collidesWithItem(this.gamePlayer.X, this.gamePlayer.Y);
   };
+
+  collidesWithItem(playerPositionX: number, playerPositionY: number) {
+    if (
+      this.gameItem.X === playerPositionX &&
+      this.gameItem.Y === playerPositionY
+    ) {
+      console.log("player collides with item");
+      this.gameItem.updatePosition();
+
+      this.gameStatus.increaseScore();
+    }
+  }
 }
 
 export default Game;
