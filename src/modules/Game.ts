@@ -34,29 +34,37 @@ class Game {
 
     this.direction = event.key;
 
-    switch (this.direction) {
-      case "ArrowLeft":
-        this.gamePlayer.X -= 10;
-        break;
-      case "ArrowRight":
-        this.gamePlayer.X += 10;
-        break;
-      case "ArrowUp":
-        this.gamePlayer.Y -= 10;
-        break;
-      case "ArrowDown":
-        this.gamePlayer.Y += 10;
-        break;
-    }
-    console.log(
-      this.gamePlayer.X,
-      this.gamePlayer.Y,
-      this.gameItem.X,
-      this.gameItem.Y
-    );
-    this.collidesWithItem(this.gamePlayer.X, this.gamePlayer.Y);
+    !this.isGameOver && this.play();
   };
 
+  play() {
+    try {
+      switch (this.direction) {
+        case "ArrowLeft":
+          this.gamePlayer.X -= 10;
+          break;
+        case "ArrowRight":
+          this.gamePlayer.X += 10;
+          break;
+        case "ArrowUp":
+          this.gamePlayer.Y -= 10;
+          break;
+        case "ArrowDown":
+          this.gamePlayer.Y += 10;
+          break;
+      }
+      console.log(
+        this.gamePlayer.X,
+        this.gamePlayer.Y,
+        this.gameItem.X,
+        this.gameItem.Y
+      );
+    } catch (error) {
+      this.isGameOver = true;
+      alert("Game is over!");
+    }
+    this.collidesWithItem(this.gamePlayer.X, this.gamePlayer.Y);
+  }
   collidesWithItem(playerPositionX: number, playerPositionY: number) {
     if (
       this.gameItem.X === playerPositionX &&
