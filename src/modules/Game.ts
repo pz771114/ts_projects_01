@@ -74,6 +74,8 @@ class Game {
       this.gameItem.updatePosition();
 
       this.gameStatus.increaseScore();
+
+      this.gamePlayer.addBodyBlock();
     }
   }
 }
