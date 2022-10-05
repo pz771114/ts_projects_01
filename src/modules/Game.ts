@@ -12,6 +12,8 @@ class Game {
   direction: string;
   isGameOver: boolean;
 
+  private _moveDistance: number = 10;
+
   constructor() {
     this.gamePlayer = new Snake();
     this.gameItem = new Item("item");
@@ -41,16 +43,16 @@ class Game {
     try {
       switch (this.direction) {
         case "ArrowLeft":
-          this.gamePlayer.X -= 10;
+          this.gamePlayer.X -= this._moveDistance;
           break;
         case "ArrowRight":
-          this.gamePlayer.X += 10;
+          this.gamePlayer.X += this._moveDistance;
           break;
         case "ArrowUp":
-          this.gamePlayer.Y -= 10;
+          this.gamePlayer.Y -= this._moveDistance;
           break;
         case "ArrowDown":
-          this.gamePlayer.Y += 10;
+          this.gamePlayer.Y += this._moveDistance;
           break;
       }
       console.log(

@@ -1,5 +1,7 @@
 class Item {
   private _element: HTMLElement;
+  private _moveDistance: number = 10;
+  private _randomSeed: number = 28;
 
   constructor(elementId: string) {
     this._element = document.querySelector(`#${elementId}`)!;
@@ -14,8 +16,10 @@ class Item {
   }
 
   updatePosition() {
-    let randomLeft = Math.round(Math.random() * 28) * 10;
-    let randomTop = Math.round(Math.random() * 28) * 10;
+    let randomLeft =
+      Math.round(Math.random() * this._randomSeed) * this._moveDistance;
+    let randomTop =
+      Math.round(Math.random() * this._randomSeed) * this._moveDistance;
 
     this._element.style.left = randomLeft + "px";
     this._element.style.top = randomTop + "px";

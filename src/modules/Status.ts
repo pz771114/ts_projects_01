@@ -4,6 +4,7 @@ class Status {
 
   private _scoreValue: number = 0;
   private _levelValue: number = 1;
+  private _scoreDivider: number = 5;
 
   constructor() {
     this._scoreElement = document.querySelector("#score")!;
@@ -18,7 +19,7 @@ class Status {
     //display the score
     this._scoreElement.innerHTML = this._scoreValue.toString();
 
-    if (this._scoreValue % 5 == 0) {
+    if (this._scoreValue % this._scoreDivider == 0) {
       this.increaseLevel();
     }
   }

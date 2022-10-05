@@ -2,6 +2,11 @@ class Snake {
   body: HTMLCollection;
   head: HTMLElement;
 
+  private _minX: number = 0;
+  private _maxX: number = 280;
+  private _minY: number = 0;
+  private _maxY: number = 280;
+
   constructor() {
     this.body = document.getElementById("snake")!.getElementsByTagName("div");
     this.head = this.body[0] as HTMLElement;
@@ -16,7 +21,7 @@ class Snake {
   }
 
   set X(value: number) {
-    if (value < 0 || value > 280) {
+    if (value < this._minX || value > this._maxX) {
       throw new Error("Out of boundary");
     }
     this.move();
@@ -24,7 +29,7 @@ class Snake {
   }
 
   set Y(value: number) {
-    if (value < 0 || value > 280) {
+    if (value < this._minY || value > this._maxY) {
       throw new Error("Out of boundary");
     }
     this.move();
